@@ -11,7 +11,7 @@ public class ManagerAfishaTest {
 
     Movie first = new Movie(1, "Бладшот", "боевик");
     Movie second = new Movie(2, "Вперёд", "мультфильм");
-    Movie third = new Movie(3, "Отель Белград", "комедий");
+    Movie third = new Movie(3, "Отель Белград", "комедия");
     Movie fourth = new Movie(4, "Джентельмены", "боевик");
     Movie fifth = new Movie(5, "Человек-невидимка", "ужасы");
     Movie sixth = new Movie(6, "Тролли. Мировой тур", "мультфильм");
@@ -36,7 +36,7 @@ public class ManagerAfishaTest {
         manager.getLasts();
 
         Movie[] actual = manager.getLasts();
-        Movie[] expected = new Movie[] {tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        Movie[] expected = new Movie[]{tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
         assertArrayEquals(expected, actual);
     }
 
@@ -51,7 +51,7 @@ public class ManagerAfishaTest {
         manager1.getLasts();
 
         Movie[] actual = manager1.getLasts();
-        Movie[] expected = new Movie[] {fifth, fourth, third, second, first};
+        Movie[] expected = new Movie[]{fifth, fourth, third, second, first};
         assertArrayEquals(expected, actual);
     }
 
@@ -61,7 +61,40 @@ public class ManagerAfishaTest {
         manager2.getLasts();
 
         Movie[] actual = manager2.getLasts();
-        Movie[] expected = new Movie[] {};
+        Movie[] expected = new Movie[]{};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldGetLastsIfOverLimit() {
+
+        manager1.add(first);
+        manager1.add(second);
+        manager1.add(third);
+        manager1.add(fourth);
+        manager1.add(fifth);
+        manager1.add(sixth);
+        manager1.add(seventh);
+
+        manager1.getLasts();
+
+        Movie[] actual = manager1.getLasts();
+        Movie[] expected = new Movie[]{fifth, fourth, third, second, first};
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldGetLastsIfUnderLimit() {
+
+        manager1.add(first);
+        manager1.add(second);
+        manager1.add(third);
+        manager1.add(fourth);
+
+        manager1.getLasts();
+
+        Movie[] actual = manager1.getLasts();
+        Movie[] expected = new Movie[]{fourth, third, second, first};
         assertArrayEquals(expected, actual);
     }
 }
