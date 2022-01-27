@@ -1,13 +1,14 @@
 package ru.netology;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.netology.domain.Movie;
+import ru.netology.manager.ManagerAfisha;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ManagerAfishaTest {
     ManagerAfisha manager = new ManagerAfisha();
-    ManagerAfisha manager1 = new ManagerAfisha(4);
+    ManagerAfisha manager1 = new ManagerAfisha(5);
 
     Movie first = new Movie(1, "Бладшот", "боевик");
     Movie second = new Movie(2, "Вперёд", "мультфильм");

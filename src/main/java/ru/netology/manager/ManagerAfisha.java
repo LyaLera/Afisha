@@ -1,7 +1,9 @@
-package ru.netology;
+package ru.netology.manager;
+
+import ru.netology.domain.Movie;
 
 public class ManagerAfisha {
-    private int movieLimit = 9;
+    private int movieLimit = 10;
     private Movie[] movies = new Movie[0];
 
     public ManagerAfisha(int movieLimit) {
@@ -22,8 +24,8 @@ public class ManagerAfisha {
 
     public Movie[] getLasts() {
         int resultLength;
-        if (movieLimit < movies.length - 1) {
-            resultLength = this.movieLimit + 1;
+        if (movies.length > movieLimit) {
+            resultLength = this.movieLimit;
         } else {
             resultLength = movies.length;
         }
