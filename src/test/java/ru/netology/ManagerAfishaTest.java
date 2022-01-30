@@ -71,7 +71,7 @@ public class ManagerAfishaTest {
         manager.add(eleventh);
 
         Movie[] actual = manager.getLasts();
-        Movie[] expected = new Movie[]{tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        Movie[] expected = new Movie[]{eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second};
         assertArrayEquals(expected, actual);
     }
 
@@ -113,7 +113,7 @@ public class ManagerAfishaTest {
         manager1.add(seventh);
 
         Movie[] actual = manager1.getLasts();
-        Movie[] expected = new Movie[]{fifth, fourth, third, second, first};
+        Movie[] expected = new Movie[]{seventh, sixth, fifth, fourth, third};
         assertArrayEquals(expected, actual);
     }
 
